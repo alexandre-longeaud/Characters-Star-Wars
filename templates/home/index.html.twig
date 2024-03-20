@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    {% for personnage in personnages %}
+        <article>
+            <header><a href="{{path(
+                'app_personnage',
+                {
+                    'id': personnage.url|replace({
+                        'https://swapi.py4e.com/api/people/':'',
+                        '/':''
+                    })
+                }
+                ) }}">{{ personnage.name }}</a>
+           
+            </header>
+        </article>
+    {% endfor %}
+{% endblock %}
